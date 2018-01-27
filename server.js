@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const qs = require("querystring");
 
 const PORT_ONE = 7000;
 const PORT_TWO = 8080;
@@ -8,6 +9,17 @@ function kindHandler(request, response) {
     response.end("Let me just tell you this: You are a sparkly rainbow of pure magnificence");
 };
 function otherHandler(request, response) {
+    if (request.method == 'POST') {
+        let formInfo = '';
+        request.on('data', function (data) {
+            formInfo += data;
+        });
+        request.on('end', function () {
+            let thisString = qs.parse(formInfo);
+            console.log("First Name: " + thisString.firstname);
+            console.log("Last Name: " + thisString.lastname);
+        });
+    };
     let path = request.url;
     switch(path) {
         case "/":
@@ -20,6 +32,9 @@ function otherHandler(request, response) {
             path = path + ".html";
             return displayFile(path, request, response);
         case "/CSSfaves":
+            path = path + ".html";
+            return displayFile(path, request, response);
+        case "/form":
             path = path + ".html";
             return displayFile(path, request, response);
         default:

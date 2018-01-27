@@ -1,0 +1,26 @@
+{
+  "name": "couple-o-servers",
+  "version": "1.0.0",
+  "description": "couple o servers but only one does anything",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xezian/couple-o-servers.git"
+  },
+  "keywords": [
+    "srvr"
+  ],
+  "author": "JSONaleo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xezian/couple-o-servers/issues"
+  },
+  "homepage": "https://github.com/xezian/couple-o-servers#readme",
+  "dependencies": {
+    "querystring": "^0.2.0"
+  }
+}
